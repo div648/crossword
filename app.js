@@ -38,10 +38,10 @@ function createObj() {
     let word = [];
     arrObjWord = [];
     //alert(str);
-    word = str.split(';');
+    word = str.split(document.getElementById('in1').value);
 
     if (boostOn) word = sortingArr(word);
-    //console.log(word)
+    console.log(word)
 
     for (let i = 0; i < word.length; i++) {
         if (i == 0) {
@@ -88,16 +88,12 @@ function ranking() {
                             }
 
                             //console.log(answerCheck);
-
-
                         }
                     }
                 }
             }
-
         }
     }
-
 }
 
 
@@ -139,7 +135,6 @@ function checkFreeCell(numObj0, numObj1, numLett0, numLett1) {
             full_size[0].push(arrObjWord[numObj0].x + i - numLett1);
             full_size[1].push(arrObjWord[numObj0].y + numLett0 - 1);
             full_size[0].push(arrObjWord[numObj0].x + i - numLett1);
-
         }
 
     } else {
@@ -148,7 +143,6 @@ function checkFreeCell(numObj0, numObj1, numLett0, numLett1) {
         full_size[1].push(full_size[1][0] - 1);
         full_size[0].push(full_size[0][full_size[0].length - 1]);
         full_size[1].push(full_size[1][full_size[1].length - 1] + 1);
-
 
         for (let i = 0; i < arrObjWord[numObj1].text.length; i++) {
             full_size[0].push(arrObjWord[numObj0].x + numLett0 + 1);
@@ -160,9 +154,6 @@ function checkFreeCell(numObj0, numObj1, numLett0, numLett1) {
     }
 
     let resul = [full_size[0][0], full_size[1][0]];
-
-
-
 
     for (let i = 0; i < arrObjWord.length; i++) {
         if (arrObjWord[i].x + arrObjWord[i].y < 0 || i == numObj1) continue;
@@ -190,14 +181,10 @@ function checkFreeCell(numObj0, numObj1, numLett0, numLett1) {
                                 resul = -1;
                                 //return -1;
                             }
-
                         }
                     }
-
                 }
             }
-
-
         }
     }
 
@@ -205,9 +192,7 @@ function checkFreeCell(numObj0, numObj1, numLett0, numLett1) {
     //console.log(full_size);
 
     return resul;
-
 }
-
 
 function cropMap() {
     let x_max = 0, x_min = arrObjWord[0].x;
@@ -226,10 +211,7 @@ function cropMap() {
             if (arrObjWord[i].x > x_max) x_max = arrObjWord[i].x
             if (arrObjWord[i].y + arrObjWord[i].text.length > y_max) y_max = arrObjWord[i].y + arrObjWord[i].text.length;
         }
-
     }
-
-
 
     x_max -= x_min;
     y_max -= y_min;
@@ -240,10 +222,7 @@ function cropMap() {
     crop_x = x_min;
     crop_y = y_min;
 
-
 }
-
-
 
 let timertime = new Date();
 
@@ -254,8 +233,6 @@ function startTimer() {
 function getTime() {
     return new Date() - timertime;
 }
-
-
 
 function drawCrossword() {
 
@@ -277,12 +254,14 @@ function drawCrossword() {
 
     let ctx = canvas.getContext("2d");
 
-
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "rgb(0,0,0)";
-    ctx.fillRect(0, 0, 20, 20);
+    ctx.fillStyle = "rgba(255,0,0,0.3)";
+    ctx.fillRect(0, 0, cellSize/2, cellSize/2);
+    ctx.fillStyle = "rgba(0,255,0,0.3)";
+    ctx.fillRect(cellSize/2/3, cellSize/2/3, cellSize/2, cellSize/2);
+    ctx.fillStyle = "rgba(0,0,255,0.3)";
+    ctx.fillRect(cellSize/2/3*2, cellSize/2/3*2, cellSize/2, cellSize/2);
 
     for (let i = 0; i < arrObjWord.length; i++) {
 
@@ -329,7 +308,6 @@ function drawCrossword() {
         }
     }
 
-
     for (let i = 0; i < arrObjWord.length; i++) {
         if (arrObjWord[i].x + arrObjWord[i].y < 0) continue;
 
@@ -339,7 +317,6 @@ function drawCrossword() {
         let px = 0;
         let py = 0;
 
-
         if (rate == 0) {
             px = (x - worldcentX) * cellSize + worldcentX;
             py = (y - worldcentY) * cellSize + worldcentY;
@@ -348,9 +325,8 @@ function drawCrossword() {
             py = (y - worldcentY) * cellSize + worldcentY;
         }
 
-
         ctx.strokeStyle = arrowColor;
-       if (!rate) {
+        if (!rate) {
             arrow(ctx, px + cellSize / 6, py + cellSize / 6, px + cellSize / 2, py + cellSize / 6);
             ctx.fillStyle = textColor;
             ctx.font = fontSize/1.5 + "px " + fontName;
@@ -365,13 +341,8 @@ function drawCrossword() {
             ctx.textBaseline = "middle";
             ctx.fillText(i, px + cellSize / 6, py + cellSize/4*3);
         }
-
-
     }
-
 }
-
-
 
 function arrow(ctx, fromx, fromy, tox, toy) {
     let headlen = 4; // length of head in pixels
@@ -386,8 +357,6 @@ function arrow(ctx, fromx, fromy, tox, toy) {
     ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
     ctx.stroke();
 }
-
-
 
 function sortingArr(arrIn) {
     arrIn.sort((a, b) => {
@@ -412,8 +381,7 @@ function setConf() {
 
     }
 }
-setConf()
-
+setConf();
 function setPrama() {
     let comm = prompt('Write command: ');
     for (let i = 0; i < commAndAct.length; i++) {
@@ -424,9 +392,6 @@ function setPrama() {
     }
 
 }
-
-
-
 function boostOnFun() {
     boostOn = !boostOn;
     localStorage[0] = boostOn;
