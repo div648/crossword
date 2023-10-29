@@ -16,7 +16,7 @@ function random(min, max) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
+document.getElementById('in0').innerText = 'кроссворд;головоломка;слова;буквы;горизонтальный;вертикальный;поиск;решение;сетка;ячейка;навык;игра;загадка;вопрос;колонка;строка;символ;разгадка;подсказка;комбинация';
     /*
         let canvas = document.getElementById("canva");
         let ctx = canvas.getContext("2d");
