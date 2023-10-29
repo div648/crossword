@@ -350,10 +350,20 @@ function drawCrossword() {
 
 
         ctx.strokeStyle = arrowColor;
-        if (!rate) {
+       if (!rate) {
             arrow(ctx, px + cellSize / 6, py + cellSize / 6, px + cellSize / 2, py + cellSize / 6);
+            ctx.fillStyle = textColor;
+            ctx.font = fontSize/1.5 + "px " + fontName;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(i, px + cellSize/4*3, py + cellSize / 6);
         } else {
             arrow(ctx, px + cellSize / 6, py + cellSize / 6, px + cellSize / 6, py + cellSize / 2);
+            ctx.fillStyle = textColor;
+            ctx.font = fontSize/1.5 + "px " + fontName;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(i, px + cellSize / 6, py + cellSize/4*3);
         }
 
 
