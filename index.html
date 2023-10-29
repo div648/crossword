@@ -1,14 +1,74 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <title>Crossword</title>
     <script src="app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        textarea {
+            box-sizing: border-box;
+            margin: 10px;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            width: 500px;
+            height: 260px;
+            resize: horizontal;
+        }
+
+        input {
+            margin: 10px;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            width: 500px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        canvas {
+            margin: 10px 0;
+        }
+
+        .backgroud {
+            background-color: rgb(125, 179, 227);
+        }
+    </style>
 </head>
+
 <body>
-    <textarea id="in0" cols="30" rows="10" >кроссворд;головоломка;слова;буквы;горизонтальный;вертикальный;поиск;решение;сетка;ячейка;навык;игра;загадка;вопрос;колонка;строка;символ;разгадка;подсказка;комбинация</textarea>
-    <button onclick="createObj()">Create</button><br>
+    <div class="backgroud">
+        <textarea id="in0" cols="60" rows="15">
+        кроссворд;головоломка;слова;буквы;горизонтальный;вертикальный;поиск;решение;сетка;ячейка;навык;игра;загадка;вопрос;колонка;строка;символ;разгадка;подсказка;комбинация
+    </textarea><br><input type="text" id="in1" placeholder="delimiter" value=";"><br>
+        <button onclick="createObj()">Create</button>
+    </div><br>
     <canvas id="canva"></canvas>
 </body>
-</html> 
+
+</html>
