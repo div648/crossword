@@ -385,3 +385,40 @@ function sortingArr(arrIn) {
     });
     return arrIn;
 }
+
+let commAndAct = [];
+commAndAct.push({
+    command: 'boost',
+    func: boostOnFun,
+    LSAddr: 0,
+    varName: 'boostOn'
+});
+
+function setConf() {
+    for (let i = 0; i < commAndAct.length; i++) {
+        if (commAndAct[i].LSAddr > -1 && typeof(localStorage[commAndAct[i].LSAddr]) == 'string') {
+            eval(commAndAct[i].varName + ' = ' + localStorage[commAndAct[i].LSAddr]);
+        }
+
+    }
+}
+setConf()
+
+function setPrama() {
+    let comm = prompt('Write command: ');
+    for (let i = 0; i < commAndAct.length; i++) {
+        if (commAndAct[i].command == comm) {
+            alert(commAndAct[i].func());
+        }
+
+    }
+
+}
+
+
+
+function boostOnFun() {
+    boostOn = !boostOn;
+    localStorage[0] = boostOn;
+    return boostOn;
+}
