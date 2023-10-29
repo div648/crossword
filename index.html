@@ -29,6 +29,7 @@
             width: 500px;
             height: 260px;
             resize: horizontal;
+
         }
 
         input {
@@ -40,6 +41,7 @@
             box-sizing: border-box;
             padding: 0 10px;
             text-align: center;
+
         }
 
         button {
@@ -49,6 +51,8 @@
             font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
+
+
         }
 
         canvas {
@@ -58,11 +62,31 @@
         .backgroud {
             background-color: rgb(125, 179, 227);
         }
+
+        a {
+            text-decoration: none;
+        }
+
+        .titles {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px;
+            color: black;
+        }
+
+        .titles:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="backgroud">
+        <a class="titles" href="https://github.com/div648/crossword" target="_blank">sources</a><br>
         <textarea id="in0" cols="60" rows="15">
         кроссворд;головоломка;слова;буквы;горизонтальный;вертикальный;поиск;решение;сетка;ячейка;навык;игра;загадка;вопрос;колонка;строка;символ;разгадка;подсказка;комбинация
     </textarea><br><input type="text" id="in1" placeholder="delimiter" value=";"><br>
