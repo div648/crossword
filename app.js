@@ -41,7 +41,7 @@ function createObj() {
     word = str.split(';');
 
     if (boostOn) word = sortingArr(word);
-    console.log(word)
+    //console.log(word)
 
     for (let i = 0; i < word.length; i++) {
         if (i == 0) {
