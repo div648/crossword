@@ -269,6 +269,7 @@ function drawCrossword() {
     let arrowColor = "black";
     let fontSize = 16;
     let fontName = "Arial";
+    let wordsVisible = document.getElementById('in2').checked;
 
 
     let canvas = document.getElementById("canva");
@@ -325,12 +326,14 @@ function drawCrossword() {
             ctx.fillRect(px, py, cellSize, cellSize);
             ctx.strokeRect(px, py, cellSize, cellSize);
 
-
-            ctx.fillStyle = textColor;
+            if (wordsVisible) {
+               ctx.fillStyle = textColor;
             ctx.font = fontSize + "px " + fontName;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.fillText(text[j], px + cellSize / 2, py + cellSize / 2);
+            ctx.fillText(text[j], px + cellSize / 2, py + cellSize / 2); 
+            }
+            
 
         }
     }
